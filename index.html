@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بچه‌های آسمان | حمایت از هنرمندان اوتیسم</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/lalezar@v1.0.0/dist/font-face.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+m.png
+        body {
+            background: linear-gradient(145deg, #e6f7ff 0%, #ffffff 100%);
+            color: #1e3a5f;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 150, 255, 0.15);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(0, 180, 255, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-family: 'Lalezar', 'Vazirmatn', cursive;
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0077be, #00b4ff, #5fa8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(0, 180, 255, 0.5);
+            letter-spacing: 2px;
+            transform: rotate(-2deg);
+            transition: all 0.4s;
+            animation: glowPulse 3s infinite alternate;
+        }
+
+        @keyframes glowPulse {
+            0% { text-shadow: 0 0 10px rgba(0, 180, 255, 0.4); }
+            100% { text-shadow: 0 0 30px rgba(0, 180, 255, 0.9), 0 0 40px rgba(0, 255, 255, 0.5); }
+        }
+
+        .logo:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav button {
+            background: transparent;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 0.6rem 1.4rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #1e4a7a;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 150, 255, 0.1);
+        }
+
+        nav button::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00b4ff, #0077be);
+            transition: width 0.4s;
+            border-radius: 10px;
+        }
+
+        nav button:hover::before {
+            width: 100%;
+        }
+
+        nav button:hover {
+            background: rgba(0, 180, 255, 0.1);
+            transform: translateY(-3px);
+            color: #005c99;
+        }
+
+        nav button.active {
+            background: linear-gradient(135deg, #00b4ff20, #0077be20);
+            color: #005c99;
+            box-shadow: 0 4px 15px rgba(0, 180, 255, 0.3);
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            min-height: 80vh;
+        }
+
+        section {
+            display: none;
+            animation: fadeSlideUp 0.7s cubic-bezier(0.2, 0.9, 0.3, 1);
+        }
+
+        section.active-section {
+            display: block;
+        }
+
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0b4b7a;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, #00b4ff, #0077be, #00b4ff, transparent);
+            border-radius: 50%;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 120, 200, 0.15), 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+            border: 1px solid rgba(0, 180, 255, 0.2);
+            position: relative;
+            cursor: pointer;
+            animation: cardPopIn 0.6s backwards;
+            animation-delay: calc(var(--i) * 0.1s);
+        }
+
+        @keyframes cardPopIn {
+            from { opacity: 0; transform: scale(0.8) translateY(30px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .product-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 150, 255, 0.3);
+            border-color: #00b4ff;
+        }
+
+        .product-img {
+            height: 200px;
+            background: linear-gradient(135deg, #d4f0ff, #b8e2ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4.5rem;
+            color: #0077be;
+            transition: all 0.5s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover .product-img {
+            background: linear-gradient(135deg, #b8e2ff, #8ecae6);
+        }
+
+        .product-info {
+            padding: 1.5rem 1.5rem 1.2rem;
+            text-align: center;
+        }
+
+        .product-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0b4b7a;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            color: #0077be;
+            font-weight: 700;
+            background: rgba(0, 180, 255, 0.12);
+            display: inline-block;
+            padding: 0.2rem 1.5rem;
+            border-radius: 40px;
+        }
+
+        .product-details {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.6s cubic-bezier(0.33, 1, 0.68, 1), opacity 0.4s, padding 0.3s;
+            background: #f0faff;
+            border-radius: 0 0 30px 30px;
+            padding: 0 1.2rem;
+            border-top: 1px solid rgba(0, 180, 255, 0.2);
+            text-align: right;
+        }
+
+        .product-card.expanded .product-details {
+            max-height: 400px;
+            opacity: 1;
+            padding: 1.2rem 1.5rem 1.8rem;
+        }
+
+        .maker-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            background: white;
+            padding: 0.6rem 1rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0, 150, 255, 0.1);
+        }
+
+        .maker-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00b4ff, #0077be);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            font-weight: 700;
+            box-shadow: 0 0 0 3px white, 0 0 0 5px #00b4ff40;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .maker-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .maker-name {
+            font-weight: 700;
+            color: #005c99;
+            font-size: 1.2rem;
+        }
+
+        .usage-text, .support-text {
+            font-size: 0.95rem;
+            color: #1e4a7a;
+            margin-bottom: 0.8rem;
+            background: white;
+            padding: 0.7rem 1rem;
+            border-radius: 20px;
+            border-right: 5px solid #00b4ff;
+        }
+
+        .add-to-cart {
+            background: linear-gradient(135deg, #00b4ff, #0077be);
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(0, 120, 200, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .add-to-cart:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 28px rgba(0, 150, 255, 0.6);
+            background: linear-gradient(135deg, #0099dd, #005c99);
+        }
+
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .teacher-card {
+            background: white;
+            border-radius: 40px 40px 30px 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 35px rgba(0, 100, 180, 0.15);
+            transition: all 0.4s;
+            border: 1px solid rgba(0, 180, 255, 0.25);
+            cursor: pointer;
+            animation: cardPopIn 0.7s backwards;
+            animation-delay: calc(var(--i) * 0.1s);
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 50px rgba(0, 150, 255, 0.3);
+        }
+
+        .teacher-header {
+            display: flex;
+            align-items: center;
+            padding: 1.8rem 1.8rem 1.2rem;
+            gap: 1.5rem;
+            background: linear-gradient(145deg, #f0faff, white);
+            border-bottom: 1px solid rgba(0, 180, 255, 0.2);
+        }
+
+        .teacher-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #b8e2ff, #8ecae6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            box-shadow: 0 8px 20px rgba(0, 150, 255, 0.3);
+            border: 4px solid white;
+            transition: transform 0.3s;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .teacher-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .teacher-card:hover .teacher-avatar {
+            transform: scale(1.05) rotate(3deg);
+        }
+
+        .teacher-name {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #0b4b7a;
+            font-family: 'Lalezar', 'Vazirmatn', cursive;
+            letter-spacing: 1px;
+        }
+
+        .teacher-role {
+            font-size: 1rem;
+            color: #0077be;
+            font-weight: 600;
+        }
+
+        .teacher-details {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.7s cubic-bezier(0.33, 1, 0.68, 1), opacity 0.5s, padding 0.3s;
+            background: #f8fdff;
+            padding: 0 1.8rem;
+        }
+
+        .teacher-card.expanded .teacher-details {
+            max-height: 500px;
+            opacity: 1;
+            padding: 1.5rem 1.8rem 2rem;
+        }
+
+        .teacher-bio {
+            margin-bottom: 1.2rem;
+            color: #1e4a7a;
+            font-size: 1rem;
+            line-height: 1.8;
+            background: white;
+            padding: 1rem;
+            border-radius: 20px;
+            border-right: 6px solid #00b4ff;
+        }
+
+        .teacher-contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+            justify-content: center;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: white;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .eita { background: linear-gradient(135deg, #f39c12, #e67e22); }
+        .rubika { background: linear-gradient(135deg, #2980b9, #1c5980); }
+        .instagram { background: linear-gradient(135deg, #e1306c, #c13584, #833ab4); }
+        .phone { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+
+        .about-institute {
+            background: white;
+            border-radius: 60px 20px 60px 20px;
+            padding: 3.5rem 3rem;
+            box-shadow: 0 30px 60px rgba(0, 150, 255, 0.2);
+            border: 2px solid rgba(0, 180, 255, 0.3);
+            text-align: center;
+            margin-top: 2rem;
+            backdrop-filter: blur(5px);
+            animation: fadeSlideUp 0.8s;
+        }
+
+        .about-institute h3 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0077be, #00b4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-institute p {
+            font-size: 1.25rem;
+            color: #1e4a7a;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            line-height: 2;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            background: #e6f7ff;
+            padding: 1.5rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            color: #005c99;
+            font-size: 1.3rem;
+            box-shadow: inset 0 0 20px rgba(0, 180, 255, 0.1);
+            border: 2px dashed #00b4ff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.8);
+            margin-top: 4rem;
+            border-top: 2px solid rgba(0, 180, 255, 0.3);
+            color: #1e4a7a;
+            font-weight: 600;
+            backdrop-filter: blur(6px);
+        }
+
+        .creator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0, 180, 255, 0.3);
+        }
+
+        .creator-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #00b4ff, 0 8px 20px rgba(0, 150, 255, 0.4);
+            transition: transform 0.4s;
+            animation: glowPulse 3s infinite alternate;
+        }
+
+        .creator-img:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .creator-text {
+            text-align: right;
+        }
+
+        .creator-label {
+            font-size: 0.9rem;
+            color: #0077be;
+            font-weight: 600;
+        }
+
+        .creator-name {
+            font-family: 'Lalezar', 'Vazirmatn', cursive;
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, #0077be, #00b4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #00b4ff, #0077be);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 20px 40px rgba(0, 150, 255, 0.5);
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+            z-index: 2000;
+            pointer-events: none;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 700px) {
+            header { flex-direction: column; gap: 1rem; }
+            .logo { font-size: 2.2rem; }
+            nav button { font-size: 1rem; padding: 0.5rem 1rem; }
+            h2 { font-size: 1.8rem; white-space: normal; }
+            .teacher-header { flex-direction: column; text-align: center; }
+            .creator { flex-direction: column; text-align: center; }
+            .creator-text { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">✨ بچه‌های آسمان ✨</div>
+    <nav>
+        <button id="btn-products" class="active">🛍️ محصولات فروش</button>
+        <button id="btn-teachers">👨‍🏫 معلمان و مسئولین</button>
+        <button id="btn-about">🏫 درباره موسسه</button>
+    </nav>
+</header>
+
+<main>
+    <section id="products-section" class="active-section">
+        <h2>🌤️ محصولات دست‌ساز بچه‌های آسمان</h2>
+        <div class="products-grid" id="productsGrid"></div>
+    </section>
+
+    <section id="teachers-section">
+        <h2>👥 معلمان و مسئولین دلسوز</h2>
+        <div class="teachers-grid" id="teachersGrid"></div>
+    </section>
+
+    <section id="about-section">
+        <h2>🏡 درباره موسسه بچه‌های آسمان</h2>
+        <div class="about-institute">
+            <h3>جایی که هنر با عشق گره خورده</h3>
+            <p>
+                موسسه «بچه‌های آسمان» از سال ۱۳۹۵ با هدف توانمندسازی کودکان و نوجوانان اوتیسم تأسیس شده است.
+                ما باور داریم هر کودک اوتیسمی دنیایی از استعداد و خلاقیت است که تنها به فرصت و حمایت نیاز دارد.
+                محصولاتی که در این سایت می‌بینید، تماماً توسط هنرمندان عزیز ما در کارگاه‌های آموزشی ساخته شده‌اند.
+                تمام عواید فروش این محصولات صرف توسعه فضاهای آموزشی، خرید وسایل هنری و برگزاری کارگاه‌های تخصصی می‌شود.
+            </p>
+            <div class="stats">
+                <div class="stat-item">🎨 ۱۲ کارگاه هنری</div>
+                <div class="stat-item">🌟 ۸۵ هنرمند کوچک</div>
+                <div class="stat-item">💙 ۲۰۰+ محصول دست‌ساز</div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="creator">
+        <img src="" alt="محمدامین تقوی" class="m.png">
+        <div class="creator-text">
+            <div class="creator-label">✨ سازنده سایت ✨</div>
+            <div class="creator-name">محمدامین تقوی</div>
+        </div>
+    </div>
+    <div>© ۱۴۰۳ بچه‌های آسمان | ساخته شده با ❤️ برای هنرمندان اوتیسم</div>
+</footer>
+
+<div class="toast" id="toast">✅ به سبد خرید اضافه شد</div>
+
+<script>
+    const products = [
+        { id: 1, name: 'بشقاب نقاشی', icon: '🍽️', price: '۲۸۰,۰۰۰', maker: 'فرهاد تقوی', makerIcon: '👦', usage: 'مناسب برای سرو دسر و تزئین میز', support: 'حمایت از کارگاه سفالگری' },
+        { id: 2, name: 'کاسه رنگین‌کمانی', icon: '🥣', price: '۳۲۰,۰۰۰', maker: 'سارا محمدی', makerIcon: '👧', usage: 'ایده‌آل برای سالاد و دسر', support: 'خرید وسایل نقاشی' },
+        { id: 3, name: 'رو میزی گلدوزی', icon: '🌸', price: '۴۵۰,۰۰۰', maker: 'امیرعلی کریمی', makerIcon: '👦', usage: 'تزئین میز غذاخوری و پذیرایی', support: 'برگزاری کارگاه گلدوزی' },
+        { id: 4, name: 'شمع معطر دست‌ساز', icon: '🕯️', price: '۱۹۰,۰۰۰', maker: 'نازنین رضایی', makerIcon: '👧', usage: 'ایجاد آرامش و عطر خوش در فضا', support: 'توسعه کارگاه شمع‌سازی' },
+        { id: 5, name: 'تابلو نقاشی انتزاعی', icon: '🎨', price: '۹۸۰,۰۰۰', maker: 'کیان مرادی', makerIcon: '👦', usage: 'دکوراسیون اتاق نشیمن', support: 'خرید بوم و رنگ برای هنرمندان' },
+        { id: 6, name: 'جعبه چوبی نقاشی‌شده', icon: '📦', price: '۳۶۰,۰۰۰', maker: 'هستی نوری', makerIcon: '👧', usage: 'نگهداری وسایل شخصی', support: 'تأمین چوب و ابزار' }
+    ];
+
+    const teachers = [
+        { id: 1, name: 'آقای یاسر نجاتی', role: 'مدیریت موسسه و مربی هنر', avatar: '🧑‍🎨', bio: 'بیش از ۱۵ سال سابقه کار با کودکان با نیازهای ویژه. دارای مدرک کارشناسی ارشد روان‌شناسی تربیتی و مؤسس موسسه بچه‌های آسمان. عاشق نقاشی و مجسمه‌سازی.', eita: 'eitaa.com/yaser_najati', rubika: 'rubika.ir/yaser_najati', instagram: 'instagram.com/yaser_najati', phone: '۰۹۱۲۳۴۵۶۷۸۹' },
+        { id: 2, name: 'خانم مریم صادقی', role: 'مربی سفالگری و سرامیک', avatar: '👩‍🎨', bio: 'کارشناس هنرهای تجسمی از دانشگاه تهران. ۸ سال است که با عشق به بچه‌های اوتیسم سفالگری آموزش می‌دهد. خالق بسیاری از بشقاب‌ها و کاسه‌های این فروشگاه.', eita: 'eitaa.com/maryam_sadeghi', rubika: 'rubika.ir/maryam_sadeghi', instagram: 'instagram.com/maryam_ceramics', phone: '۰۹۳۵۱۲۳۴۵۶۷' },
+        { id: 3, name: 'آقای رضا کاظمی', role: 'مربی موسیقی و کاردرمانی', avatar: '🧑‍🎤', bio: 'کارشناس موسیقی و کاردرمانگر. با استفاده از موسیقی به بهبود تمرکز و مهارت‌های حرکتی بچه‌ها کمک می‌کند. برگزارکننده کنسرت‌های خیریه برای موسسه.', eita: 'eitaa.com/reza_kazemi', rubika: 'rubika.ir/reza_kazemi', instagram: 'instagram.com/reza_music_therapy', phone: '۰۹۱۹۸۷۶۵۴۳۲' },
+        { id: 4, name: 'خانم زهرا موسوی', role: 'مربی نقاشی و رنگ‌آمیزی', avatar: '👩‍🎨', bio: 'فارغ‌التحصیل نقاشی از دانشگاه هنر. ۶ سال سابقه تدریس به کودکان اوتیسم. تخصص در رنگ‌شناسی و ایجاد آرامش از طریق هنر. تمام تابلوهای نقاشی این سایت زیر نظر ایشان خلق شده.', eita: 'eitaa.com/zahra_mousavi', rubika: 'rubika.ir/zahra_mousavi', instagram: 'instagram.com/zahra_art_therapy', phone: '۰۹۱۲۹۸۷۶۵۴۳' }
+    ];
+
+    function renderProducts() {
+        const grid = document.getElementById('productsGrid');
+        grid.innerHTML = '';
+        products.forEach((product, index) => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.style.setProperty('--i', index);
+            const makerContent = product.makerIcon.endsWith('.png') || product.makerIcon.endsWith('.jpg')
+                ? `<img src="${product.makerIcon}" alt="${product.maker}">`
+                : product.makerIcon;
+            card.innerHTML = `
+                <div class="product-img">${product.icon}</div>
+                <div class="product-info">
+                    <div class="product-title">${product.name}</div>
+                    <div class="product-price">${product.price} تومان</div>
+                </div>
+                <div class="product-details">
+                    <div class="maker-info">
+                        <div class="maker-avatar">${makerContent}</div>
+                        <span class="maker-name">ساخته شده توسط ${product.maker}</span>
+                    </div>
+                    <div class="usage-text">✨ کاربرد: ${product.usage}</div>
+                    <div class="support-text">💙 ${product.support}</div>
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('${product.name}')">🛒 افزودن به سبد خرید</button>
+                </div>
+            `;
+            card.addEventListener('click', function(e) {
+                if (e.target.classList.contains('add-to-cart')) return;
+                this.classList.toggle('expanded');
+            });
+            grid.appendChild(card);
+        });
+    }
+
+    function renderTeachers() {
+        const grid = document.getElementById('teachersGrid');
+        grid.innerHTML = '';
+        teachers.forEach((teacher, index) => {
+            const card = document.createElement('div');
+            card.className = 'teacher-card';
+            card.style.setProperty('--i', index);
+            const avatarContent = teacher.avatar.endsWith('.png') || teacher.avatar.endsWith('.jpg')
+                ? `<img src="${teacher.avatar}" alt="${teacher.name}">`
+                : teacher.avatar;
+            card.innerHTML = `
+                <div class="teacher-header">
+                    <div class="teacher-avatar">${avatarContent}</div>
+                    <div>
+                        <div class="teacher-name">${teacher.name}</div>
+                        <div class="teacher-role">${teacher.role}</div>
+                    </div>
+                </div>
+                <div class="teacher-details">
+                    <div class="teacher-bio">${teacher.bio}</div>
+                    <div class="teacher-contact">
+                        <a href="https://${teacher.eita}" target="_blank" class="contact-btn eita" onclick="event.stopPropagation()">📱 ایتا</a>
+                        <a href="https://${teacher.rubika}" target="_blank" class="contact-btn rubika" onclick="event.stopPropagation()">📲 روبیکا</a>
+                        <a href="https://${teacher.instagram}" target="_blank" class="contact-btn instagram" onclick="event.stopPropagation()">📷 اینستاگرام</a>
+                        <button class="contact-btn phone" onclick="event.stopPropagation(); showToast('📞 شماره تماس: ${teacher.phone}')">📞 تماس</button>
+                    </div>
+                </div>
+            `;
+            card.addEventListener('click', function() {
+                this.classList.toggle('expanded');
+            });
+            grid.appendChild(card);
+        });
+    }
+
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    function addToCart(productName) {
+        showToast(`✅ «${productName}» به سبد خرید اضافه شد`);
+    }
+
+    document.getElementById('btn-products').addEventListener('click', function() {
+        document.querySelectorAll('section').forEach(s => s.classList.remove('active-section'));
+        document.getElementById('products-section').classList.add('active-section');
+        document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+    });
+
+    document.getElementById('btn-teachers').addEventListener('click', function() {
+        document.querySelectorAll('section').forEach(s => s.classList.remove('active-section'));
+        document.getElementById('teachers-section').classList.add('active-section');
+        document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+    });
+
+    document.getElementById('btn-about').addEventListener('click', function() {
+        document.querySelectorAll('section').forEach(s => s.classList.remove('active-section'));
+        document.getElementById('about-section').classList.add('active-section');
+        document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+    });
+
+    renderProducts();
+    renderTeachers();
+</script>
+
+</body>
+</html>
